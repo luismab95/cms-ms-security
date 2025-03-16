@@ -99,7 +99,7 @@ export class UserRepository {
     const total = await query.getCount();
     const records = await query
       .groupBy('u.id')
-      .orderBy('u.id', 'DESC')
+      .orderBy('u.firstname', 'ASC')
       .offset((paginationRequest.page - 1) * paginationRequest.limit)
       .limit(paginationRequest.limit)
       .getRawMany<UserI>();
