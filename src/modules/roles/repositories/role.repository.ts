@@ -65,6 +65,7 @@ export class RoleRepository {
       .innerJoin(Module, 'mo', 'mo.id = m.module_id and mo.status = true')
       .where('mr.role_id = :roleId', { roleId })
       .andWhere('mr.status = true')
+      .orderBy('mr.order', 'ASC')
       .getRawMany<MenuRolI>();
   }
 }
