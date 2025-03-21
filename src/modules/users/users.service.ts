@@ -103,7 +103,7 @@ export class UsersService {
     const session = await this.userRepository.findSession(
       tokenPayload.sessionId,
     );
-    if (session === undefined) {
+    if (!session) {
       throw new HttpException(
         'No se encontro datos de la sesión',
         HttpStatus.BAD_REQUEST,
@@ -129,16 +129,18 @@ export class UsersService {
         HttpStatus.BAD_REQUEST,
       );
     }
-    delete role.permissionId;
     delete role.status;
 
-    const permission = await this.userRepository.findPermission(user.roleId);
+    const permission = await this.userRepository.findPermission(
+      role.permissionId,
+    );
     if (permission === undefined) {
       throw new HttpException(
         'No se encontro datos de los permisos',
         HttpStatus.BAD_REQUEST,
       );
     }
+    delete role.permissionId;
     delete permission.id;
     delete permission.status;
 

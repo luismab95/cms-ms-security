@@ -38,6 +38,7 @@ export class RoleRepository {
       ])
       .from(Role, 'r')
       .where('r.status = true')
+      .orderBy('r.id', 'ASC')
       .getRawMany<RoleI>();
   }
 
@@ -52,7 +53,6 @@ export class RoleRepository {
         'm.status as "status"',
         'm.icon as "icon"',
         'm.path as "path"',
-        'm.actions as "actions"',
         'm.module_id as "moduleId"',
         'mo.name as "moduleName"',
         'mo.description as "moduleDescription"',
