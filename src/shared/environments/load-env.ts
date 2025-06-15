@@ -11,9 +11,9 @@ export const config = {
     dbPassword: process.env.DB_PASSWORD,
     dbDatabase: process.env.DB_DATABASE,
     jwtSecretKey: process.env.JWT_SECRET_KEY,
-    msLogs: process.env.MS_LOGS,
     msEmail: process.env.MS_EMAIL,
     cryptoKey: process.env.CRYPTO_KEY,
     frontendUrl: process.env.FRONTEND_URL,
+    corsOrigin: process.env.CORS_ORIGIN,
   },
 };
