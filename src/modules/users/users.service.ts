@@ -167,6 +167,7 @@ export class UsersService {
         navigationItem.children.push({
           id: menu.id.toString(),
           title: menu.name,
+          subtitle:menu.description,
           type: 'basic',
           icon: menu.icon,
           link: menu.path,
