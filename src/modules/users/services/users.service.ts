@@ -6,18 +6,13 @@ import {
   OK_200,
   PaginationResquestDto,
   verifyToken,
-  TokenInterface,
+  TokenI,
   config,
   EmailI,
   generateRandomPassword,
 } from 'cms-lib-resources';
 import _ from 'lodash';
-import {
-  CreateUserDto,
-  NavigationI,
-  UpdateUserDto,
-  UserI,
-} from '../dto/user.dto.js';
+import { CreateUserDto, NavigationI, UpdateUserDto } from '../dto/user.dto.js';
 import { RoleRepository } from '../../roles/repositories/role.repository.js';
 import { UserRepository } from '../repositories/user.repository.js';
 import { ParameterRepository } from '../../parameters/repositories/parameter.repository.js';
@@ -135,7 +130,7 @@ export class UsersService {
   }
 
   async getSession(token: string) {
-    const tokenPayload = verifyToken(token) as TokenInterface;
+    const tokenPayload = verifyToken(token) as TokenI;
     const session = await this.userRepository.findSession(
       tokenPayload.sessionId!,
     );
