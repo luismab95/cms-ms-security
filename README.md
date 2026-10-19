@@ -17,7 +17,7 @@
   <a href="https://pnpm.io/">
     <img src="https://img.shields.io/badge/package%20manager-pnpm-F69220.svg" alt="pnpm" />
   </a>
-  <a href="https://github.com/luismab95/cms-ms-auth/blob/main/LICENSE">
+  <a href="https://github.com/luismab95/cms-ms-security/blob/main/LICENSE">
     <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT License" />
   </a>
 </p>
@@ -68,7 +68,7 @@ git clone https://github.com/luismab95/cms-ms-security.git
 Navigate to the project directory:
 
 ```bash
-cd cms-ms-auth
+cd cms-ms-security
 ```
 
 Install dependencies:
@@ -184,7 +184,7 @@ For additional information, see the [NestJS deployment documentation](https://do
 - [NestJS Official Website](https://nestjs.com)
 - [pnpm Documentation](https://pnpm.io)
 - [Node.js Documentation](https://nodejs.org/docs)
-- [CMS-MS-AUTH Repository](https://github.com/luismab95/cms-ms-auth)
+- [CMS-MS-SECURITY Repository](https://github.com/luismab95/cms-ms-security)
 
 ## License
 
