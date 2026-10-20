@@ -22,7 +22,7 @@ export class ParametersService {
   async findAll() {
     const parameters = await this.parameterRepository.get();
     parameters.forEach((parameter) => {
-      if (parameter.private) {
+      if (parameter.private && parameter.value !== '') {
         parameter.value = decryptedData(parameter.value);
       }
     });
@@ -32,7 +32,7 @@ export class ParametersService {
   async findPublic() {
     const parameters = await this.parameterRepository.get();
     parameters.forEach((parameter) => {
-      if (parameter.private) {
+      if (parameter.private && parameter.value !== '') {
         parameter.value = decryptedData(parameter.value);
       }
     });
@@ -47,7 +47,9 @@ export class ParametersService {
         HttpStatus.BAD_REQUEST,
       );
     }
-    if (parameter.private) parameter.value = decryptedData(parameter.value);
+    if (parameter.private && parameter.value !== '') {
+      parameter.value = decryptedData(parameter.value);
+    }
     return parameter;
   }
 
@@ -77,7 +79,9 @@ export class ParametersService {
             HttpStatus.BAD_REQUEST,
           );
         }
-        if (parameter.private) item.value = encryptedData(item.value);
+        if (parameter.private && parameter.value !== '') {
+          item.value = encryptedData(item.value);
+        }
         await this.parameterRepository.update(parameter.id, item, cnx);
       }
     });
