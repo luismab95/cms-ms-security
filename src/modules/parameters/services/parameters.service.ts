@@ -79,7 +79,7 @@ export class ParametersService {
             HttpStatus.BAD_REQUEST,
           );
         }
-        if (parameter.private && parameter.value !== '') {
+        if (parameter.private) {
           item.value = encryptedData(item.value);
         }
         await this.parameterRepository.update(parameter.id, item, cnx);
